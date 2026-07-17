@@ -4,8 +4,7 @@ const SECRET_KEY = "your-secret-key-12345"; // In a real app, this would be in e
 
 const handleNoUserData = (res, userData) => {
   if (!userData) {
-    res.statusCode = 404;
-    return res.json("can not get user");
+    return res.status(404).json({ message: "can not get user" });
   }
 
   return res.json({ data: userData });

@@ -1,0 +1,138 @@
+/**
+ * Logo SportSee - Flame + Blue Bars
+ * Recreated from Figma design
+ */
+
+.logo {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Flame Icon Container */
+.logo-flame {
+  width: 19px;
+  height: 20.66px;
+  position: relative;
+  transform: rotate(180deg);
+  transform-origin: top left;
+}
+
+/* Individual flame bars - using gradient from Figma */
+.flame-bar {
+  position: absolute;
+  border-radius: 20px;
+}
+
+.flame-bar-1 {
+  width: 3px;
+  height: 15px;
+  left: 7px;
+  top: 20.66px;
+  background: linear-gradient(180deg, #F4320B 0%, #5465F7 100%);
+  transform: rotate(180deg);
+  transform-origin: top left;
+}
+
+.flame-bar-2 {
+  width: 3px;
+  height: 14px;
+  left: 4px;
+  top: 0px;
+  background: linear-gradient(0deg, #F99885 0%, #DF392B 100%);
+}
+
+.flame-bar-3 {
+  width: 3px;
+  height: 6px;
+  left: 19px;
+  top: 17.33px;
+  background: linear-gradient(180deg, #F4320B 0%, #5465F7 100%);
+  transform: rotate(180deg);
+  transform-origin: top left;
+}
+
+.flame-bar-4 {
+  width: 3px;
+  height: 14px;
+  left: 16px;
+  top: 0px;
+  background: linear-gradient(0deg, #F99885 0%, #DF392B 100%);
+}
+
+.flame-bar-5 {
+  width: 3px;
+  height: 9px;
+  left: 15px;
+  top: 20px;
+  background: linear-gradient(180deg, #F4320B 0%, #5465F7 100%);
+  transform: rotate(180deg);
+  transform-origin: top left;
+}
+
+.flame-bar-6 {
+  width: 3px;
+  height: 9px;
+  left: 12px;
+  top: 5px;
+  background: linear-gradient(0deg, #F99885 0%, #DF392B 100%);
+}
+
+.flame-bar-7 {
+  width: 3px;
+  height: 5px;
+  left: 11px;
+  top: 16.33px;
+  background: linear-gradient(180deg, #F4320B 0%, #5465F7 100%);
+  transform: rotate(180deg);
+  transform-origin: top left;
+}
+
+.flame-bar-8 {
+  width: 3px;
+  height: 12px;
+  left: 8px;
+  top: 2px;
+  background: linear-gradient(0deg, #F99885 0%, #DF392B 100%);
+}
+
+.flame-bar-9 {
+  width: 3px;
+  height: 8px;
+  left: 3px;
+  top: 19px;
+  background: linear-gradient(180deg, #F4320B 0%, #5465F7 100%);
+  transform: rotate(180deg);
+  transform-origin: top left;
+}
+
+.flame-bar-10 {
+  width: 3px;
+  height: 11px;
+  left: 0px;
+  top: 3.33px;
+  background: linear-gradient(0deg, #F99885 0%, #DF392B 100%);
+}
+
+/* Blue Bars Container */
+.logo-bars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+}
+
+/* Individual blue bars */
+.bar {
+  background: #0B23F4;
+}
+
+.bar-1 { width: 13.44px; height: 22.75px; }
+.bar-2 { width: 13.44px; height: 22.75px; }
+.bar-3 { width: 15.14px; height: 23.41px; }
+.bar-4 { width: 14.66px; height: 22.75px; }
+.bar-5 { width: 15.77px; height: 22.73px; }
+.bar-6 { width: 15.88px; height: 23.41px; }
+.bar-7 { width: 15.25px; height: 22.75px; }
+.bar-8 { width: 15.14px; height: 23.41px; }

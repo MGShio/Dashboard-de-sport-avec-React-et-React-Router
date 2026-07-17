@@ -1,0 +1,82 @@
+/**
+ * Stat Card Styles
+ * Based on Figma design
+ */
+
+.stat-card {
+  width: 100%;
+  min-width: 278px;
+  padding: var(--spacing-lg);
+  padding-right: var(--spacing-3xl);
+  background: var(--surface-white);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  box-shadow: var(--shadow-card);
+}
+
+/* Filled variant - blue background */
+.stat-card-filled {
+  background: var(--surface-blue);
+  box-shadow: none;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+}
+
+/* White text for filled cards */
+.stat-card-filled .stat-label {
+  color: var(--surface-white);
+}
+
+.stat-value-group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.stat-value {
+  font-size: var(--font-size-2xl);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+}
+
+.text-blue {
+  color: var(--text-blue);
+}
+
+.text-orange {
+  color: var(--text-orange);
+}
+
+.text-white {
+  color: var(--surface-white);
+}
+
+.stat-unit {
+  color: var(--surface-light-blue);
+  font-size: var(--font-size-lg);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  width: 62px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.text-light-orange {
+  color: var(--surface-light-orange);
+}
+
+.text-light-blue {
+  color: var(--surface-light-blue);
+}

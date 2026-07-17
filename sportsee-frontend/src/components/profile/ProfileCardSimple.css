@@ -1,0 +1,69 @@
+/**
+ * Simple Profile Card Styles (without chart)
+ * Displays only photo, name, and member since date
+ */
+
+.profile-card-simple {
+  width: 508px;
+  padding: 24px 32px 24px 32px;
+  background: var(--surface-white);
+  box-shadow: 0px 4px 84px -40px rgba(157, 167, 251, 0.40);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  display: inline-flex;
+}
+
+.profile-info-simple {
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  display: flex;
+}
+
+.profile-picture-simple {
+  width: 104px;
+  height: 117px;
+  position: relative;
+  box-shadow: 0px 4px 84px -40px rgba(157, 167, 251, 0.40);
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.profile-picture-placeholder-simple {
+  width: 104px;
+  height: 117px;
+  background: var(--surface-light-blue);
+  border-radius: 10px;
+  box-shadow: 0px 4px 84px -40px rgba(157, 167, 251, 0.40);
+}
+
+.profile-text-simple {
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+  display: inline-flex;
+}
+
+.profile-name-simple {
+  align-self: stretch;
+  color: var(--typography-primary);
+  font-size: 22px;
+  font-family: Inter;
+  font-weight: 500;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+.profile-member-since-simple {
+  align-self: stretch;
+  color: var(--typography-secondary);
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 400;
+  word-wrap: break-word;
+  margin: 0;
+}

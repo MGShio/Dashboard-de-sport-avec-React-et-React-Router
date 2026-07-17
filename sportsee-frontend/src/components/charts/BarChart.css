@@ -1,0 +1,162 @@
+/**
+ * Bar Chart Styles
+ * Based on Figma design
+ */
+
+.bar-chart {
+  width: 100%;
+  position: relative;
+}
+
+.bar-chart-blue .bar {
+  background: var(--surface-light-blue);
+}
+
+.bar-chart-orange .bar {
+  background: var(--surface-light-orange);
+}
+
+.chart-inner {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 262px;
+}
+
+/* Y-Axis */
+.y-axis {
+  width: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 var(--spacing-xs);
+}
+
+.y-axis span {
+  color: var(--text-secondary);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+}
+
+/* Bars Area */
+.bars-area {
+  flex: 1;
+  display: flex;
+  position: relative;
+  height: 100%;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.bar-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  position: relative;
+}
+
+.bar {
+  width: 14px;
+  border-radius: var(--radius-full);
+  transition: height 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* Grid Lines */
+.grid-line {
+  position: absolute;
+  border: 1px solid var(--border-secondary);
+  border-color: var(--border-light);
+  pointer-events: none;
+}
+
+.grid-line.horizontal {
+  bottom: 0;
+  left: var(--spacing-md);
+  right: var(--spacing-md);
+  border-top: none;
+}
+
+.grid-line.vertical {
+  top: 0;
+  bottom: 0;
+  left: var(--spacing-md);
+  border-left: none;
+}
+
+/* X-Axis */
+.x-axis {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-xs);
+  margin-top: auto;
+}
+
+.x-label {
+  flex: 1;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+}
+
+/* Legend */
+.chart-legend {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding-top: var(--spacing-md);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.legend-marker {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  position: relative;
+}
+
+.legend-marker-blue .legend-marker::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  left: 4px;
+  top: 4px;
+  background: var(--surface-light-blue);
+  border-radius: 9999px;
+}
+
+.legend-marker-orange::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  left: 4px;
+  top: 4px;
+  background: var(--surface-light-orange);
+  border-radius: 9999px;
+}
+
+.legend-text {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+}

@@ -1,0 +1,77 @@
+/**
+ * Performance Section Styles
+ * Based on Figma design
+ */
+
+.performance-section {
+  width: 100%;
+  max-width: 1052px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--spacing-xl);
+}
+
+.section-title {
+  color: var(--text-primary);
+  font-size: var(--font-size-2xl);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+}
+
+.charts-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: var(--spacing-xl);
+}
+
+.chart-card {
+  flex: 1;
+  padding-top: var(--spacing-md);
+  padding-bottom: var(--spacing-xl);
+  padding-left: var(--spacing-xl);
+  padding-right: var(--spacing-xl);
+  background: var(--surface-white);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+}
+
+.chart-header {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.chart-title-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+}
+
+.chart-value {
+  font-size: var(--font-size-2xl);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+}
+
+.chart-subtitle {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+  max-width: 254px;
+}

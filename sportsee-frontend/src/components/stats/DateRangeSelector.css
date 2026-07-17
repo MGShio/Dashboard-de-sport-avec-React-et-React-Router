@@ -1,0 +1,46 @@
+/**
+ * Date Range Selector Styles
+ */
+
+.date-range-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.range-button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--surface-white);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.range-button:hover {
+  border-color: var(--border-primary);
+}
+
+.range-button.active {
+  background: var(--surface-white);
+  border-color: var(--border-primary);
+}
+
+/* Arrow icon for active button */
+.range-button.active::before {
+  content: '';
+  width: 4px;
+  height: 8px;
+  border: solid var(--text-primary);
+  border-width: 0 1px 1px 0;
+  transform: rotate(45deg);
+  margin-right: var(--spacing-xs);
+}
