@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '../header/Header';
 import ProfileCard from '../profile/ProfileCard';
 import PerformanceSection from '../stats/PerformanceSection';
@@ -85,10 +85,6 @@ const calculateTodayScore = (userData) => {
  */
 function DashboardLayout({ onLogout }) {
   const { userData, activityData, isLoading } = useAppContext();
-  const [dateRange, setDateRange] = useState({
-    startWeek: '',
-    endWeek: '',
-  });
 
   // Format data for charts
   const sessionData = formatSessionData(activityData);

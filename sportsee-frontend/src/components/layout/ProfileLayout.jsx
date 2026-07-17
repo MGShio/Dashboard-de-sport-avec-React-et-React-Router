@@ -51,15 +51,6 @@ const calculateRestDays = (activityData, createdAt) => {
 function ProfileLayout({ onLogout }) {
   const { userData, activityData, isLoading } = useAppContext();
 
-  // Format date for "Membre depuis"
-  const formattedDate = userData?.profile?.createdAt 
-    ? new Date(userData.profile.createdAt).toLocaleDateString('fr-FR', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-      })
-    : '14 juin 2023';
-
   // Extract statistics
   const totalDistance = userData?.statistics?.totalDistance || 312;
   const totalSessions = userData?.statistics?.totalSessions || 41;

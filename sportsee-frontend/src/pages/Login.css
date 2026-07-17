@@ -88,7 +88,7 @@
 }
 
 .login-label {
-  color: var(--typography-secondary, #707070);
+  color: var(--typographie-secondary, #707070);
   font-size: 14px;
   font-family: Inter;
   font-weight: 400;
@@ -184,17 +184,13 @@
   left: 632px;
   top: 0px;
   position: absolute;
-  background: var(--surface-secondary, #F2F3FF);
 }
 
-.login-image {
+.login-background-image {
   width: 100%;
   height: 100%;
-  /* Use inline style for background image to avoid Webpack resolution issues */
-  /* Background will be set via inline style in JSX */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  object-fit: cover;
+  display: block;
 }
 
 .login-info-bubble {

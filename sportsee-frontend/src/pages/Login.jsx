@@ -99,9 +99,10 @@ function Login() {
       </div>
       
       <div className="login-right-column">
-        <div 
-          className="login-image" 
-          style={{ backgroundImage: "url(/images/background_picture.png)" }}
+        <img 
+          src="/images/background_picture.png" 
+          alt="Background" 
+          className="login-background-image"
         />
       </div>
       
