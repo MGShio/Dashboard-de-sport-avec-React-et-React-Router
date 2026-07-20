@@ -72,7 +72,7 @@
 .stats-title {
   color: var(--typography-primary);
   font-size: 22px;
-  font-family: Inter;
+  font-family: var(--font-family);
   font-weight: 500;
   word-wrap: break-word;
   margin: 0;
@@ -81,7 +81,7 @@
 .stats-subtitle {
   color: var(--typography-secondary);
   font-size: 14px;
-  font-family: Inter;
+  font-family: var(--font-family);
   font-weight: 400;
   word-wrap: break-word;
   margin: 0;

@@ -3,6 +3,9 @@
   min-height: 100vh;
   background-color: #f5f5f5;
   padding: 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }
 
 /* Login Styles */
@@ -20,12 +23,14 @@
   color: #ff0101;
   margin-bottom: 25px;
   font-size: 28px;
+  font-family: 'Inter', sans-serif;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1.67vw;
+  width: 100%;
 }
 
 .form-group {
@@ -38,6 +43,7 @@
   margin-bottom: 5px;
   font-weight: bold;
   color: #333;
+  font-family: 'Inter', sans-serif;
 }
 
 .form-group input {
@@ -46,6 +52,7 @@
   border-radius: 5px;
   font-size: 16px;
   transition: border-color 0.3s;
+  font-family: 'Inter', sans-serif;
 }
 
 .form-group input:focus {
@@ -55,7 +62,7 @@
 
 .login-button {
   padding: 12px 20px;
-  background-color: #ff0101;
+  background-color: #0B23F4;
   color: white;
   border: none;
   border-radius: 5px;
@@ -63,6 +70,7 @@
   cursor: pointer;
   transition: background-color 0.3s;
   margin-top: 10px;
+  font-family: 'Inter', sans-serif;
 }
 
 .login-button:hover {
@@ -78,6 +86,7 @@
   color: #ff0101;
   margin: 10px 0;
   font-weight: bold;
+  font-family: 'Inter', sans-serif;
 }
 
 .credentials-hint {
@@ -85,12 +94,14 @@
   padding-top: 20px;
   border-top: 1px solid #eee;
   text-align: left;
+  font-family: 'Inter', sans-serif;
 }
 
 .credentials-hint p {
   margin: 8px 0;
   font-size: 14px;
   color: #666;
+  font-family: 'Inter', sans-serif;
 }
 
 /* Dashboard Styles */
@@ -112,6 +123,7 @@
 .dashboard-header h1 {
   color: #ff0101;
   font-size: 32px;
+  font-family: 'Inter', sans-serif;
 }
 
 .logout-button {
@@ -122,6 +134,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-family: 'Inter', sans-serif;
 }
 
 .logout-button:hover {
@@ -147,6 +160,7 @@
   color: #ff0101;
   margin-bottom: 20px;
   font-size: 24px;
+  font-family: 'Inter', sans-serif;
 }
 
 .profile-details {
@@ -162,6 +176,7 @@
 .profile-row span {
   padding: 8px;
   border-bottom: 1px solid #eee;
+  font-family: 'Inter', sans-serif;
 }
 
 .profile-row span:first-child {
@@ -188,6 +203,7 @@
   color: #ff0101;
   margin-bottom: 20px;
   font-size: 24px;
+  font-family: 'Inter', sans-serif;
 }
 
 .stats-grid {
@@ -208,12 +224,14 @@
   font-size: 16px;
   margin-bottom: 10px;
   opacity: 0.9;
+  font-family: 'Inter', sans-serif;
 }
 
 .stat-card p {
   font-size: 28px;
   font-weight: bold;
   margin: 0;
+  font-family: 'Inter', sans-serif;
 }
 
 /* Recent Activity Section */
@@ -229,6 +247,7 @@
   color: #ff0101;
   margin-bottom: 20px;
   font-size: 24px;
+  font-family: 'Inter', sans-serif;
 }
 
 .activity-table {
@@ -241,6 +260,7 @@
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  font-family: 'Inter', sans-serif;
 }
 
 .activity-table th {

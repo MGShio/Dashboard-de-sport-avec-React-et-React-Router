@@ -27,7 +27,7 @@
 .profile-info-title {
   color: var(--typography-primary);
   font-size: 22px;
-  font-family: Inter;
+  font-family: var(--font-family);
   font-weight: 500;
   word-wrap: break-word;
   margin: 0;
@@ -62,7 +62,7 @@
 .profile-info-label {
   color: var(--typography-secondary);
   font-size: 16px;
-  font-family: Inter;
+  font-family: var(--font-family);
   font-weight: 500;
   word-wrap: break-word;
 }
@@ -70,7 +70,7 @@
 .profile-info-value {
   color: var(--typography-secondary);
   font-size: 16px;
-  font-family: Inter;
+  font-family: var(--font-family);
   font-weight: 500;
   word-wrap: break-word;
 }

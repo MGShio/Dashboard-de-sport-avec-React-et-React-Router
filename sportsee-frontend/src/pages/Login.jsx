@@ -44,9 +44,11 @@ function Login() {
             vos stats en résultats
           </h1>
           
+          <h2 className="login-se-connecter">
+            Se connecter
+          </h2>
+          
           <div className="login-form-container">
-            <h2 className="login-heading">Se connecter</h2>
-            
             <form onSubmit={handleSubmit} className="login-form">
               <div className="login-input-group">
                 <label htmlFor="username" className="login-label">

@@ -4,21 +4,20 @@
  */
 
 .login-page {
-  width: 1440px;
-  height: 1024px;
+  width: 100%;
+  min-height: 100vh;
   position: relative;
   background: #FAFAFA;
   overflow: hidden;
   display: flex;
   margin: 0 auto;
+  font-family: Inter, sans-serif;
 }
 
 .login-left-column {
-  width: 632px;
-  height: 1024px;
-  padding-top: 55px;
-  padding-bottom: 55px;
-  padding-left: 100px;
+  width: 44%;
+  min-height: 100vh;
+  padding: 55px 5%;
   position: relative;
   background: var(--surface-secondary, #F2F3FF);
   overflow: hidden;
@@ -26,15 +25,14 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 151px;
+  gap: 5.5vw;
   display: inline-flex;
 }
 
 .login-content {
-  padding-top: 40px;
-  padding-bottom: 80px;
-  padding-left: 40px;
-  padding-right: 40px;
+  width: 75%;
+  height: 60%;
+  padding: 2.5vw;
   background: var(--surface-white, white);
   overflow: hidden;
   border-radius: 20px;
@@ -42,36 +40,48 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 40px;
+  gap: 2.78vw; /* 40px / 1440 = 2.78vw */
   display: flex;
-  width: calc(100% - 80px);
+  box-sizing: border-box;
 }
 
 .login-title {
-  width: 317px;
+  text-align: left;
+  width: 100%;
   color: var(--surface-blue, #0B23F4);
-  font-size: 28px;
-  font-family: Inter;
+  font-size: 1.94vw;
+  font-family: Inter, sans-serif;
   font-weight: 600;
   word-wrap: break-word;
   margin: 0;
   line-height: 1.2;
 }
 
+.login-se-connecter {
+  width: 100%;
+  color: var(--typography-primary, #111111);
+  font-size: 1.53vw;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+  margin: 0;
+  text-align: left;
+}
+
 .login-form-container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 1.5vw;
   display: flex;
-  width: 100%;
+  width: 80%;
 }
 
 .login-heading {
-  width: 317px;
+  width: 100%;
   color: var(--typography-primary, #111111);
-  font-size: 22px;
-  font-family: Inter;
+  font-size: 1.53vw;
+  font-family: Inter, sans-serif;
   font-weight: 500;
   word-wrap: break-word;
   margin: 0;
@@ -83,21 +93,23 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 8px;
+  gap: 0.5vw;
   display: flex;
 }
 
 .login-label {
   color: var(--typographie-secondary, #707070);
-  font-size: 14px;
-  font-family: Inter;
+  font-size: 0.97vw;
+  font-family: Inter, sans-serif;
   font-weight: 400;
   word-wrap: break-word;
 }
 
 .login-input {
   align-self: stretch;
-  height: 58px;
+  height: 4vw;
+  min-height: 40px;
+  max-height: 58px;
   position: relative;
   background: var(--surface-white, white);
   border-radius: 10px;
@@ -105,8 +117,8 @@
   outline: 0.5px var(--border-secondary, #717171) solid;
   outline-offset: -0.5px;
   padding: 0 16px;
-  font-size: 16px;
-  font-family: Inter;
+  font-size: 1.11vw;
+  font-family: Inter, sans-serif;
   font-weight: 400;
   color: var(--typography-primary, #111111);
   width: 100%;
@@ -120,31 +132,33 @@
 
 .login-input::placeholder {
   color: var(--typography-tertiary, #E7E7E7);
+  font-family: Inter, sans-serif;
 }
 
 .login-error {
   color: var(--surface-orange, #F4320B);
-  font-size: 14px;
-  font-family: Inter;
+  font-size: 0.97vw;
+  font-family: Inter, sans-serif;
   font-weight: 400;
   margin: 0;
   align-self: flex-start;
 }
 
 .login-button {
-  width: 318px;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  width: 100%;
+  height: 3.54vw;
+  max-height: 51px;
+  min-height: 40px;
+  max-width: 317px;
+  padding: 0 40px;
   background: var(--surface-action, #0B23F4);
   overflow: hidden;
   border-radius: 10px;
   border: none;
   cursor: pointer;
   color: var(--typography-tertiary, #E7E7E7);
-  font-size: 16px;
-  font-family: Inter;
+  font-size: 1.11vw;
+  font-family: Inter, sans-serif;
   font-weight: 500;
   word-wrap: break-word;
   transition: background-color 0.2s ease;
@@ -165,8 +179,8 @@
 .login-forgot-password {
   text-align: center;
   color: var(--typography-primary, #111111);
-  font-size: 14px;
-  font-family: Inter;
+  font-size: 0.97vw;
+  font-family: Inter, sans-serif;
   font-weight: 400;
   word-wrap: break-word;
   margin: 0;
@@ -179,11 +193,9 @@
 }
 
 .login-right-column {
-  width: 808px;
-  height: 1024px;
-  left: 632px;
-  top: 0px;
-  position: absolute;
+  width: 56%;
+  min-height: 100vh;
+  position: relative;
 }
 
 .login-background-image {
@@ -195,8 +207,8 @@
 
 .login-info-bubble {
   padding: 16px;
-  left: 1128px;
-  top: 933px;
+  right: 5%;
+  bottom: 5%;
   position: absolute;
   background: var(--surface-white, white);
   overflow: hidden;
@@ -210,8 +222,8 @@
 .login-info-bubble p {
   text-align: center;
   color: var(--surface-blue, #0B23F4);
-  font-size: 12px;
-  font-family: Inter;
+  font-size: 0.83vw;
+  font-family: Inter, sans-serif;
   font-weight: 400;
   word-wrap: break-word;
   margin: 0;
@@ -220,22 +232,77 @@
 
 /* Responsive adjustments */
 @media (max-width: 1440px) {
+  .login-left-column {
+    width: 45%;
+    padding: 55px 3%;
+    gap: 40px;
+  }
+  
+  .login-right-column {
+    width: 55%;
+  }
+  
+  .login-content {
+    width: 63%;
+    height: 62%;
+    padding: 40px;
+    gap: 28px; /* 40px fixe pour 1440px */
+  }
+  
+  .login-title { font-size: 22px; width: 100%; max-width: 317px; }
+  .login-se-connecter { font-size: 18px; width: 100%; max-width: 317px; }
+  .login-heading { font-size: 18px; width: 100%; max-width: 317px; }
+  .login-label { font-size: 12px; }
+  .login-input { font-size: 14px; height: 50px; }
+  .login-error { font-size: 12px; }
+  .login-button { font-size: 14px; padding: 0 30px; height: 50px; }
+  .login-form-container { gap: 20px; }
+  .login-input-group { gap: 6px; }
+  .login-forgot-password { font-size: 12px; }
+  .login-info-bubble p { font-size: 11px; }
+}
+
+@media (max-width: 1024px) {
   .login-page {
-    width: 100%;
-    min-height: 100vh;
+    flex-direction: column;
   }
   
   .login-left-column {
     width: 100%;
-    height: auto;
+    min-height: auto;
     padding: 40px;
+    gap: 30px;
+  }
+  
+  .login-content {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    gap: 25px;
   }
   
   .login-right-column {
-    display: none;
+    width: 100%;
+    height: 400px;
+    position: relative;
+    left: 0;
+    top: 0;
   }
   
   .login-info-bubble {
     display: none;
   }
+  
+  .login-title { font-size: 24px; }
+  .login-se-connecter { font-size: 18px; }
+  .login-heading { font-size: 18px; }
+  .login-label { font-size: 14px; }
+  .login-input { font-size: 16px; height: 50px; }
+  .login-error { font-size: 14px; }
+  .login-button { font-size: 16px; padding: 0 35px; height: 50px; }
+  .login-form-container { gap: 20px; }
+  .login-input-group { gap: 8px; }
+  .login-forgot-password { font-size: 14px; }
 }
