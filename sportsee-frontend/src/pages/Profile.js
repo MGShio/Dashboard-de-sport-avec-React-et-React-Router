@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../context/AppContext';
-import ProfileLayout from '../components/layout/ProfileLayout';
+import ProfilePage from './ProfilePage';
 
 /**
  * Profile Page
- * Displays user profile information and statistics
+ * Displays user profile information and statistics from API
  */
 function Profile() {
   const navigate = useNavigate();
-  const { auth, userData, isLoading, logout } = useAppContext();
+  const { auth, userData, activityData, isLoading, logout } = useAppContext();
 
   useEffect(() => {
     if (!auth) {
@@ -19,7 +19,7 @@ function Profile() {
 
   if (isLoading) {
     return (
-      <div className="profile-layout">
+      <div style={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <p>Chargement du profil...</p>
       </div>
     );
@@ -29,7 +29,7 @@ function Profile() {
     return null;
   }
 
-  return <ProfileLayout userData={userData} onLogout={logout} />;
+  return <ProfilePage userData={userData} activityData={activityData} onLogout={logout} />;
 }
 
 export default Profile;
