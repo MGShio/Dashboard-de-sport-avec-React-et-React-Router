@@ -1,47 +1,53 @@
 /**
  * Login Page Styles
- * Based on Figma design
+ * Full-width proportional scaling based on 1440x1024 Figma maquette
+ * Uses vw units for consistent proportions across all screen sizes
  */
 
 .login-page {
   width: 100%;
   min-height: 100vh;
-  position: relative;
-  background: #FAFAFA;
-  overflow: hidden;
   display: flex;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  background: #FAFAFA;
   font-family: Inter, sans-serif;
 }
 
+.login-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  background: #FAFAFA;
+}
+
 .login-left-column {
-  width: 44%;
-  min-height: 100vh;
-  padding: 55px 5%;
+  width: 44%; /* 632/1440 */
+  height: 100%;
+  padding: 3.82vw 5%; /* 55/1440 = 3.82vw */
   position: relative;
   background: var(--surface-secondary, #F2F3FF);
   overflow: hidden;
   backdrop-filter: blur(37px);
+  display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: flex-start;
-  gap: 5.5vw;
-  display: inline-flex;
+  gap: 2.78vw; /* 40/1440 */
 }
 
 .login-content {
-  width: 75%;
-  height: 60%;
-  padding: 2.5vw;
+  width: 75%; /* 398/632 */
+  height: 85%;
+  padding: 2.78vw; /* 40/1440 */
   background: var(--surface-white, white);
-  overflow: hidden;
   border-radius: 20px;
   backdrop-filter: blur(57px);
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 2.78vw; /* 40px / 1440 = 2.78vw */
-  display: flex;
+  gap: 1.94vw; /* 28/1440 */
   box-sizing: border-box;
 }
 
@@ -49,7 +55,7 @@
   text-align: left;
   width: 100%;
   color: var(--surface-blue, #0B23F4);
-  font-size: 1.94vw;
+  font-size: 1.94vw; /* 28/1440 */
   font-family: Inter, sans-serif;
   font-weight: 600;
   word-wrap: break-word;
@@ -60,7 +66,7 @@
 .login-se-connecter {
   width: 100%;
   color: var(--typography-primary, #111111);
-  font-size: 1.53vw;
+  font-size: 1.53vw; /* 22/1440 */
   font-family: Inter, sans-serif;
   font-weight: 500;
   word-wrap: break-word;
@@ -71,16 +77,15 @@
 .login-form-container {
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 1.5vw;
+  gap: 1.53vw; /* 22/1440 */
   display: flex;
-  width: 80%;
+  width: 100%;
 }
 
 .login-heading {
   width: 100%;
   color: var(--typography-primary, #111111);
-  font-size: 1.53vw;
+  font-size: 1.53vw; /* 22/1440 */
   font-family: Inter, sans-serif;
   font-weight: 500;
   word-wrap: break-word;
@@ -93,13 +98,14 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 0.5vw;
+  gap: 0.55vw; /* 8/1440 */
   display: flex;
+  padding-bottom: 3.91vh;
 }
 
 .login-label {
   color: var(--typographie-secondary, #707070);
-  font-size: 0.97vw;
+  font-size: 0.97vw; /* 14/1440 */
   font-family: Inter, sans-serif;
   font-weight: 400;
   word-wrap: break-word;
@@ -107,7 +113,7 @@
 
 .login-input {
   align-self: stretch;
-  height: 4vw;
+  height: 4.03vw; /* 58/1440 */
   min-height: 40px;
   max-height: 58px;
   position: relative;
@@ -117,7 +123,7 @@
   outline: 0.5px var(--border-secondary, #717171) solid;
   outline-offset: -0.5px;
   padding: 0 16px;
-  font-size: 1.11vw;
+  font-size: 1.11vw; /* 16/1440 */
   font-family: Inter, sans-serif;
   font-weight: 400;
   color: var(--typography-primary, #111111);
@@ -137,7 +143,7 @@
 
 .login-error {
   color: var(--surface-orange, #F4320B);
-  font-size: 0.97vw;
+  font-size: 0.97vw; /* 14/1440 */
   font-family: Inter, sans-serif;
   font-weight: 400;
   margin: 0;
@@ -145,11 +151,10 @@
 }
 
 .login-button {
-  width: 100%;
-  height: 3.54vw;
-  max-height: 51px;
+  width: 100%; /* 318/1440 */
+  height: 3.54vw; /* 51/1440 */
   min-height: 40px;
-  max-width: 317px;
+  max-height: 51px;
   padding: 0 40px;
   background: var(--surface-action, #0B23F4);
   overflow: hidden;
@@ -157,7 +162,7 @@
   border: none;
   cursor: pointer;
   color: var(--typography-tertiary, #E7E7E7);
-  font-size: 1.11vw;
+  font-size: 1.11vw; /* 16/1440 */
   font-family: Inter, sans-serif;
   font-weight: 500;
   word-wrap: break-word;
@@ -177,9 +182,9 @@
 }
 
 .login-forgot-password {
-  text-align: center;
+  text-align: left;
   color: var(--typography-primary, #111111);
-  font-size: 0.97vw;
+  font-size: 0.97vw; /* 14/1440 */
   font-family: Inter, sans-serif;
   font-weight: 400;
   word-wrap: break-word;
@@ -193,8 +198,8 @@
 }
 
 .login-right-column {
-  width: 56%;
-  min-height: 100vh;
+  width: 56%; /* 808/1440 */
+  height: 100%;
   position: relative;
 }
 
@@ -222,7 +227,7 @@
 .login-info-bubble p {
   text-align: center;
   color: var(--surface-blue, #0B23F4);
-  font-size: 0.83vw;
+  font-size: 0.83vw; /* 12/1440 */
   font-family: Inter, sans-serif;
   font-weight: 400;
   word-wrap: break-word;
@@ -230,48 +235,59 @@
   line-height: 1.4;
 }
 
-/* Responsive adjustments */
+/* Responsive pour écrans <= 1440px */
 @media (max-width: 1440px) {
+  .login-container {
+    height: auto;
+    min-height: 100vh;
+  }
+  
   .login-left-column {
     width: 45%;
+    height: 100%;
     padding: 55px 3%;
     gap: 40px;
   }
   
   .login-right-column {
     width: 55%;
+    height: 100%;
   }
   
   .login-content {
-    width: 63%;
+    width: 75%;
     height: 62%;
     padding: 40px;
-    gap: 28px; /* 40px fixe pour 1440px */
+    gap: 28px;
   }
   
-  .login-title { font-size: 22px; width: 100%; max-width: 317px; }
-  .login-se-connecter { font-size: 18px; width: 100%; max-width: 317px; }
-  .login-heading { font-size: 18px; width: 100%; max-width: 317px; }
-  .login-label { font-size: 12px; }
-  .login-input { font-size: 14px; height: 50px; }
-  .login-error { font-size: 12px; }
-  .login-button { font-size: 14px; padding: 0 30px; height: 50px; }
-  .login-form-container { gap: 20px; }
-  .login-input-group { gap: 6px; }
-  .login-forgot-password { font-size: 12px; }
-  .login-info-bubble p { font-size: 11px; }
+  .login-title { font-size: 28px; width: 100%; max-width: 317px; }
+  .login-se-connecter { font-size: 22px; width: 100%; max-width: 317px; }
+  .login-heading { font-size: 22px; width: 100%; max-width: 317px; }
+  .login-label { font-size: 14px; }
+  .login-input { font-size: 16px; height: 58px; }
+  .login-error { font-size: 14px; }
+  .login-button { font-size: 16px; padding: 0 40px; height: 51px; width: 80%; }
+  .login-form-container { gap: 22px; }
+  .login-input-group { gap: 8px; }
+  .login-forgot-password { font-size: 14px; }
+  .login-info-bubble p { font-size: 12px; }
 }
 
+/* Mobile layout - stack vertically */
 @media (max-width: 1024px) {
-  .login-page {
+  .login-container {
     flex-direction: column;
+    height: auto;
+    min-height: 100vh;
   }
   
   .login-left-column {
     width: 100%;
-    min-height: auto;
+    height: auto;
     padding: 40px;
     gap: 30px;
+    min-height: 60vh;
   }
   
   .login-content {
@@ -287,8 +303,6 @@
     width: 100%;
     height: 400px;
     position: relative;
-    left: 0;
-    top: 0;
   }
   
   .login-info-bubble {
@@ -301,7 +315,7 @@
   .login-label { font-size: 14px; }
   .login-input { font-size: 16px; height: 50px; }
   .login-error { font-size: 14px; }
-  .login-button { font-size: 16px; padding: 0 35px; height: 50px; }
+  .login-button { font-size: 16px; padding: 0 35px; height: 50px; width: 80%; }
   .login-form-container { gap: 20px; }
   .login-input-group { gap: 8px; }
   .login-forgot-password { font-size: 14px; }
