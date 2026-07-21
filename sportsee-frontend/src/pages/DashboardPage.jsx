@@ -18,6 +18,7 @@ import {
   Radar,
   RadialBarChart,
   RadialBar,
+  ComposedChart,
 } from 'recharts';
 import './DashboardPage.css';
 
@@ -56,16 +57,22 @@ function DashboardPage() {
       { name: 'S4', distance: 262, day: 'Jeu' },
     ];
 
-    // Format BPM chart data from activity heartRate data
+    // Format BPM chart data with min, max, and average for the line curve
     const bpmData = [
-      { name: 'Lun', bpm: 200, day: 1 },
-      { name: 'Mar', bpm: 180, day: 2 },
-      { name: 'Mer', bpm: 160, day: 3 },
-      { name: 'Jeu', bpm: 197, day: 4 },
-      { name: 'Ven', bpm: 160, day: 5 },
-      { name: 'Sam', bpm: 195, day: 6 },
-      { name: 'Dim', bpm: 160, day: 7 },
+      { name: 'Lun', maxBpm: 200, minBpm: 130, avgBpm: 165, day: 1 },
+      { name: 'Mar', maxBpm: 180, minBpm: 140, avgBpm: 158, day: 2 },
+      { name: 'Mer', maxBpm: 160, minBpm: 135, avgBpm: 145, day: 3 },
+      { name: 'Jeu', maxBpm: 197, minBpm: 150, avgBpm: 170, day: 4 },
+      { name: 'Ven', maxBpm: 160, minBpm: 130, avgBpm: 145, day: 5 },
+      { name: 'Sam', maxBpm: 195, minBpm: 155, avgBpm: 175, day: 6 },
+      { name: 'Dim', maxBpm: 160, minBpm: 130, avgBpm: 140, day: 7 },
     ];
+
+    // Calculate Y axis domain for BPM chart based on actual data
+    const allBpmValues = bpmData.flatMap(d => [d.minBpm, d.maxBpm, d.avgBpm]);
+    const bpmMin = Math.min(...allBpmValues);
+    const bpmMax = Math.max(...allBpmValues);
+    const yDomain = [Math.floor(bpmMin - 5), Math.ceil(bpmMax + 5)];
 
     // Format sessions line data from activity duration
     const sessionsData = [
@@ -94,7 +101,7 @@ function DashboardPage() {
       : '18';
 
     const avgBPM = bpmData.length > 0
-      ? (bpmData.reduce((sum, item) => sum + item.bpm, 0) / bpmData.length).toFixed(0)
+      ? (bpmData.reduce((sum, item) => sum + item.maxBpm, 0) / bpmData.length).toFixed(0)
       : '163';
 
     // Weekly summary data
@@ -113,6 +120,7 @@ function DashboardPage() {
       weeklyData,
       avgDistance,
       avgBPM,
+      yBpmDomain: yDomain,
     };
   }, [statistics.totalDistance, statistics.totalDuration]);
 
@@ -124,6 +132,7 @@ function DashboardPage() {
     weeklyData,
     avgDistance,
     avgBPM,
+    yBpmDomain,
   } = chartData;
 
   const formattedDate = new Date(profile.createdAt).toLocaleDateString('fr-FR', {
@@ -162,6 +171,21 @@ function DashboardPage() {
       <div className="custom-tooltip">
         <p className="tooltip-label">{label}</p>
         <p className="tooltip-value">{payload[0].value}</p>
+      </div>
+    );
+  };
+
+  /**
+   * Custom Tooltip for BPM Composed Chart
+   */
+  const BpmTooltip = ({ active, payload, label }) => {
+    if (!active || !payload || payload.length === 0) return null;
+    return (
+      <div className="custom-tooltip">
+        <p className="tooltip-label">{label}</p>
+        <p style={{ color: '#F4320B', margin: '2px 0' }}>Max: {payload.find(p => p.dataKey === 'maxBpm')?.value || '-'} BPM</p>
+        <p style={{ color: '#FCC1B6', margin: '2px 0' }}>Min: {payload.find(p => p.dataKey === 'minBpm')?.value || '-'} BPM</p>
+        <p style={{ color: '#0B23F4', margin: '2px 0' }}>Moy: {payload.find(p => p.dataKey === 'avgBpm')?.value || '-'} BPM</p>
       </div>
     );
   };
@@ -296,8 +320,8 @@ function DashboardPage() {
                         <Tooltip content={<CustomTooltip />} cursor={{ fill: 'transparent' }} />
                         <Bar
                           dataKey="distance"
-                          fill="#0B23F4"
-                          radius={[30, 30, 0, 0]}
+                          fill="#B6BDFC"
+                          radius={30}
                           barSize={14}
                         />
                       </BarChart>
@@ -305,7 +329,7 @@ function DashboardPage() {
                   </div>
                 </div>
 
-                {/* BPM Bar Chart */}
+                {/* BPM Composed Chart with bars (min/max) and line (average) */}
                 <div className="chart-card">
                   <div className="chart-header">
                     <div className="chart-title-group">
@@ -316,7 +340,7 @@ function DashboardPage() {
                   </div>
                   <div className="recharts-container">
                     <ResponsiveContainer width="100%" height="100%">
-                      <BarChart
+                      <ComposedChart
                         data={bpmData}
                         margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
                         barGap={8}
@@ -335,17 +359,34 @@ function DashboardPage() {
                           axisLine={false}
                           tick={{ fill: '#707070', fontSize: 12 }}
                           tickCount={5}
-                          domain={[0, 'dataMax + 50']}
+                          domain={yBpmDomain}
                           tickFormatter={(value) => value.toString()}
                         />
-                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'transparent' }} />
+                        <Tooltip content={<BpmTooltip />} cursor={{ fill: 'transparent' }} />
                         <Bar
-                          dataKey="bpm"
+                          dataKey="maxBpm"
                           fill="#F4320B"
-                          radius={[30, 30, 0, 0]}
+                          radius={30}
                           barSize={14}
+                          name="Max BPM"
                         />
-                      </BarChart>
+                        <Bar
+                          dataKey="minBpm"
+                          fill="#FCC1B6"
+                          radius={30}
+                          barSize={14}
+                          name="Min BPM"
+                        />
+                        <Line
+                          type="natural"
+                          dataKey="avgBpm"
+                          stroke="#B6BDFC"
+                          strokeWidth={2}
+                          dot={{ fill: '#0B23F4', r: 4 }}
+                          activeDot={{ fill: '#0B23F4', r: 6 }}
+                          name="Moyenne BPM"
+                        />
+                      </ComposedChart>
                     </ResponsiveContainer>
                   </div>
                 </div>
@@ -534,7 +575,7 @@ function DashboardPage() {
         <div className="profile-footer-right">
           <a href="/terms" className="profile-footer-link">Conditions générales</a>
           <a href="/contact" className="profile-footer-link">Contact</a>
-          <img src="/images/logo_small.png" alt="Sportsee" className="profile-footer-logo" />
+          <Logo className="profile-footer-logo" />
         </div>
       </footer>
     </div>
