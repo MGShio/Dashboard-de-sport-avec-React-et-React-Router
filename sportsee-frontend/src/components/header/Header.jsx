@@ -29,7 +29,7 @@ function Header({ onLogout }) {
             <NavLink to="/profile">Mon profil</NavLink>
           </div>
           <button onClick={handleLogout} className="logout-button">
-            Se d√©connecter
+            Se déconnecter
           </button>
         </nav>
       </div>
