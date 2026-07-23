@@ -874,3 +874,51 @@
     font-size: 12px;
   }
 }
+
+
+/* ===== RADIAL CHART LEGEND ===== */
+.radial-chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #707070;
+  font-size: 12px;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Radial Chart Text Styles */
+.radial-chart-text {
+  font-family: var(--font-family);
+  pointer-events: none;
+}
+
+.radial-chart-text.main {
+  font-size: 36px;
+  font-weight: 700;
+  fill: #0B23F4;
+}
+
+.radial-chart-text.subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  fill: #707070;
+}
+
+.radial-chart-text.label {
+  font-size: 14px;
+  font-weight: 400;
+  fill: #707070;
+}

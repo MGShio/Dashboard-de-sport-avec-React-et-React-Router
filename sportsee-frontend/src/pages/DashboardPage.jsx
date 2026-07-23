@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useAppContext } from '../context/AppContext';
 import Logo from '../components/header/Logo';
 import {
@@ -16,8 +16,8 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
   Radar,
-  RadialBarChart,
-  RadialBar,
+  PieChart,
+  Pie,
   ComposedChart,
 } from 'recharts';
 import './DashboardPage.css';
@@ -30,7 +30,7 @@ import './DashboardPage.css';
  * Uses real API data from userData and activityData via AppContext
  */
 function DashboardPage() {
-  const { userData, activityData, logout } = useAppContext();
+  const { userData, activityData, goalData, logout } = useAppContext();
   const [dateRange, setDateRange] = useState({ start: '28 mai', end: '25 juin' });
 
   // Profile and statistics from API
@@ -106,8 +106,8 @@ function DashboardPage() {
 
     // Weekly summary data
     const weeklyData = {
-      completed: 4,
-      total: 6,
+      completed: goalData?.completed || 4,
+      total: goalData?.total || 6,
       duration: statistics.totalDuration || 140,
       distance: parseFloat(statistics.totalDistance || 21.7).toFixed(1),
     };
@@ -122,7 +122,7 @@ function DashboardPage() {
       avgBPM,
       yBpmDomain: yDomain,
     };
-  }, [statistics.totalDistance, statistics.totalDuration]);
+  }, [statistics.totalDistance, statistics.totalDuration, goalData?.completed, goalData?.total]);
 
   const {
     distanceData,
@@ -183,9 +183,9 @@ function DashboardPage() {
     return (
       <div className="custom-tooltip">
         <p className="tooltip-label">{label}</p>
-        <p style={{ color: '#F4320B', margin: '2px 0' }}>Max: {payload.find(p => p.dataKey === 'maxBpm')?.value || '-'} BPM</p>
-        <p style={{ color: '#FCC1B6', margin: '2px 0' }}>Min: {payload.find(p => p.dataKey === 'minBpm')?.value || '-'} BPM</p>
-        <p style={{ color: '#0B23F4', margin: '2px 0' }}>Moy: {payload.find(p => p.dataKey === 'avgBpm')?.value || '-'} BPM</p>
+        <p style={{ color: '#F4320B', margin: '2px 0' }}>Max: {payload.find(p => p.dataKey === 'maxBpm')?.value || '-' } BPM</p>
+        <p style={{ color: '#FCC1B6', margin: '2px 0' }}>Min: {payload.find(p => p.dataKey === 'minBpm')?.value || '-' } BPM</p>
+        <p style={{ color: '#0B23F4', margin: '2px 0' }}>Moy: {payload.find(p => p.dataKey === 'avgBpm')?.value || '-' } BPM</p>
       </div>
     );
   };
@@ -495,55 +495,61 @@ function DashboardPage() {
                 </div>
                 <div className="radial-chart-container">
                   <ResponsiveContainer width="100%" height="100%">
-                    <RadialBarChart
-                      cx="50%"
-                      cy="50%"
-                      innerRadius="70%"
-                      outerRadius="90%"
-                      barSize={12}
-                      data={[
-                        { name: 'Completed', value: weeklyData.completed, fill: '#0B23F4' },
-                        { name: 'Remaining', value: weeklyData.total - weeklyData.completed, fill: '#B6BDFC' },
-                      ]}
-                      startAngle={90}
-                      endAngle={-270}
-                    >
-                      <RadialBar
+                    <PieChart>
+                      <Pie
+                        data={[
+                          { name: 'Réalisés', value: weeklyData.completed, fill: '#0B23F4' },
+                          { name: 'Restants', value: weeklyData.total - weeklyData.completed, fill: '#B6BDFC' },
+                        ]}
                         dataKey="value"
-                        cornerRadius={10}
-                      />
-                      <text
-                        x="50%"
-                        y="45%"
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                        className="radial-chart-text main"
+                        innerRadius="60%"
+                        outerRadius="100%"
+                        startAngle={130}
+                        endAngle={490}
                       >
-                        x{weeklyData.completed}
-                      </text>
-                      <text
-                        x="50%"
-                        y="20%"
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                        className="radial-chart-text subtitle"
-                      >
-                        sur objectif de {weeklyData.total}
-                      </text>
-                      <text
-                        x="50%"
-                        y="75%"
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                        className="radial-chart-text label"
-                      >
-                        {weeklyData.total - weeklyData.completed} restants
-                      </text>
-                    </RadialBarChart>
+                        <text
+                          x="50%"
+                          y="40%"
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                          className="radial-chart-text main"
+                        >
+                          x{weeklyData.completed}
+                        </text>
+                        <text
+                          x="50%"
+                          y="55%"
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                          className="radial-chart-text subtitle"
+                        >
+                          sur objectif de {weeklyData.total}
+                        </text>
+                        <text
+                          x="50%"
+                          y="70%"
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                          className="radial-chart-text label"
+                        >
+                          {weeklyData.total - weeklyData.completed} restants
+                        </text>
+                      </Pie>
+                    </PieChart>
                   </ResponsiveContainer>
                 </div>
               </div>
 
+              <div className="radial-chart-legend">
+                <div className="legend-item">
+                  <span className="legend-dot" style={{ backgroundColor: "#0B23F4" }} />
+                  <span>{weeklyData.completed} réalisées</span>
+                </div>
+                <div className="legend-item">
+                  <span className="legend-dot" style={{ backgroundColor: "#B6BDFC" }} />
+                  <span>{weeklyData.total - weeklyData.completed} restants</span>
+                </div>
+              </div>
               <div className="stats-cards">
                 <div className="stat-card">
                   <span className="stat-label">Durée d'activité</span>

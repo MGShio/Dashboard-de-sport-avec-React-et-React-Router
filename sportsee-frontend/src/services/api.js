@@ -56,6 +56,16 @@ export const getUserActivity = async (startWeek, endWeek) => {
   }
 };
 
+// Get user weekly goal progress
+export const getUserGoal = async () => {
+  try {
+    const response = await api.get("/api/user-goal");
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 // Logout - clear token
 export const logout = () => {
   localStorage.removeItem('token');

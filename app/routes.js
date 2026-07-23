@@ -118,4 +118,28 @@ router.get("/api/user-activity", authenticateToken, (req, res) => {
   return res.json(sortedSessions);
 });
 
+/**
+ * GET /api/user-goal
+ * Returns user weekly goal progress for RadialBarChart
+ * Returns: { completed, total, goal, todayScore }
+ */
+router.get("/api/user-goal", authenticateToken, (req, res) => {
+  const user = getUserById(req.user.userId);
+  
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  // Get goal data - prefer goal field, fall back to weeklyGoal
+  const total = user.goal || user.weeklyGoal || 6;
+  const completed = user.todayScore || 0;
+
+  return res.json({
+    completed: Math.min(completed, total),
+    total: total,
+    goal: total,
+    todayScore: completed / total
+  });
+});
+
 module.exports = router;

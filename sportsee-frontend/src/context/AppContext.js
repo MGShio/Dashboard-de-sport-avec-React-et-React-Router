@@ -4,12 +4,13 @@ import {
   logout as apiLogout,
   getUserInfo,
   getUserActivity,
+  getUserGoal,
   isAuthenticated as checkAuth,
 } from '../services/api';
 
 /**
  * App Context for global state management
- * Manages: authentication, user data, activity data, loading states
+ * Manages: authentication, user data, activity data, goal data, loading states
  */
 const AppContext = createContext(null);
 
@@ -20,6 +21,7 @@ const AppContext = createContext(null);
 export const AppProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
   const [activityData, setActivityData] = useState([]);
+  const [goalData, setGoalData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -27,7 +29,7 @@ export const AppProvider = ({ children }) => {
   const [auth, setAuth] = useState(() => checkAuth());
 
   /**
-   * Fetch user data and activity from API
+   * Fetch user data, activity, and goal data from API
    * @param {string} startWeek - Start date for activity query
    * @param {string} endWeek - End date for activity query
    */
@@ -44,6 +46,10 @@ export const AppProvider = ({ children }) => {
       // Get user info
       const userInfo = await getUserInfo();
       setUserData(userInfo);
+
+      // Get goal data
+      const goalInfo = await getUserGoal();
+      setGoalData(goalInfo);
 
       // Get activity data
       if (startWeek && endWeek) {
@@ -103,6 +109,7 @@ export const AppProvider = ({ children }) => {
     setAuth(false);
     setUserData(null);
     setActivityData([]);
+    setGoalData(null);
   }, []);
 
   // Initial data fetch on auth change
@@ -112,6 +119,7 @@ export const AppProvider = ({ children }) => {
     } else {
       setUserData(null);
       setActivityData([]);
+      setGoalData(null);
     }
   }, [auth, fetchData]);
 
@@ -132,6 +140,7 @@ export const AppProvider = ({ children }) => {
     // State
     userData,
     activityData,
+    goalData,
     isLoading,
     auth,
     error,
