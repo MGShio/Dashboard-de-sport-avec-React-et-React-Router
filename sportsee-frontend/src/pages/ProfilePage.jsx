@@ -178,8 +178,8 @@ function ProfilePage({ userData, activityData, onLogout }) {
           <span>Tous droits réservés</span>
         </div>
         <div className="profile-footer-right">
-          <a href="#" className="profile-footer-link">Conditions générales</a>
-          <a href="#" className="profile-footer-link">Contact</a>
+          <a href="/terms" className="profile-footer-link">Conditions générales</a>
+          <a href="/contact" className="profile-footer-link">Contact</a>
           <img src="/images/logo_small.png" alt="Sportsee" className="profile-footer-logo" />
         </div>
       </footer>

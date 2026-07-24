@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useAppContext } from '../context/AppContext';
 import Logo from '../components/header/Logo';
 import {
@@ -30,8 +30,7 @@ import './DashboardPage.css';
  * Uses real API data from userData and activityData via AppContext
  */
 function DashboardPage() {
-  const { userData, activityData, goalData, logout } = useAppContext();
-  const [dateRange, setDateRange] = useState({ start: '28 mai', end: '25 juin' });
+  const { userData, goalData, logout } = useAppContext();
 
   // Profile and statistics from API
   const profile = userData?.profile || {
@@ -364,13 +363,6 @@ function DashboardPage() {
                         />
                         <Tooltip content={<BpmTooltip />} cursor={{ fill: 'transparent' }} />
                         <Bar
-                          dataKey="maxBpm"
-                          fill="#F4320B"
-                          radius={30}
-                          barSize={14}
-                          name="Max BPM"
-                        />
-                        <Bar
                           dataKey="minBpm"
                           fill="#FCC1B6"
                           radius={30}
@@ -386,8 +378,29 @@ function DashboardPage() {
                           activeDot={{ fill: '#0B23F4', r: 6 }}
                           name="Moyenne BPM"
                         />
+                        <Bar
+                          dataKey="maxBpm"
+                          fill="#F4320B"
+                          radius={30}
+                          barSize={14}
+                          name="Max BPM"
+                        />
                       </ComposedChart>
                     </ResponsiveContainer>
+                    <div className="bpm-chart-legend">
+                      <div className="legend-item">
+                        <span className="legend-dot" style={{ backgroundColor: "#FCC1B6" }} />
+                        <span>Min BPM</span>
+                      </div>
+                      <div className="legend-item">
+                        <span className="legend-dot" style={{ backgroundColor: "#F4320B" }} />
+                        <span>Max BPM</span>
+                      </div>
+                      <div className="legend-item">
+                        <span className="legend-dot" style={{ backgroundColor: "#B6BDFC" }} />
+                        <span>Moyenne BPM</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -488,8 +501,7 @@ function DashboardPage() {
               <div className="radial-chart-card">
                 <div className="radial-chart-header">
                   <div className="radial-chart-title">
-                    <span className="progress-count text-blue">x{weeklyData.completed}</span>
-                    <span className="progress-subtitle">sur objectif de {weeklyData.total}</span>
+                    <span className="progress-count text-blue">Courses hebdomadaires</span>
                   </div>
                   <span className="chart-description">Courses hebdomadaire réalisées</span>
                 </div>
@@ -507,49 +519,24 @@ function DashboardPage() {
                         startAngle={130}
                         endAngle={490}
                       >
-                        <text
-                          x="50%"
-                          y="40%"
-                          textAnchor="middle"
-                          dominantBaseline="middle"
-                          className="radial-chart-text main"
-                        >
-                          x{weeklyData.completed}
-                        </text>
-                        <text
-                          x="50%"
-                          y="55%"
-                          textAnchor="middle"
-                          dominantBaseline="middle"
-                          className="radial-chart-text subtitle"
-                        >
-                          sur objectif de {weeklyData.total}
-                        </text>
-                        <text
-                          x="50%"
-                          y="70%"
-                          textAnchor="middle"
-                          dominantBaseline="middle"
-                          className="radial-chart-text label"
-                        >
-                          {weeklyData.total - weeklyData.completed} restants
-                        </text>
                       </Pie>
                     </PieChart>
                   </ResponsiveContainer>
+                <div className="radial-chart-legend radial-chart-legend-left">
+                  <div className="legend-item">
+                    <span className="legend-dot" style={{ backgroundColor: "#0B23F4" }} />
+                    <span>{weeklyData.completed} réalisées</span>
+                  </div>
+                </div>
+                <div className="radial-chart-legend radial-chart-legend-right">
+                  <div className="legend-item">
+                    <span className="legend-dot" style={{ backgroundColor: "#B6BDFC" }} />
+                    <span>{weeklyData.total - weeklyData.completed} restants</span>
+                  </div>
+                </div>
                 </div>
               </div>
 
-              <div className="radial-chart-legend">
-                <div className="legend-item">
-                  <span className="legend-dot" style={{ backgroundColor: "#0B23F4" }} />
-                  <span>{weeklyData.completed} réalisées</span>
-                </div>
-                <div className="legend-item">
-                  <span className="legend-dot" style={{ backgroundColor: "#B6BDFC" }} />
-                  <span>{weeklyData.total - weeklyData.completed} restants</span>
-                </div>
-              </div>
               <div className="stats-cards">
                 <div className="stat-card">
                   <span className="stat-label">Durée d'activité</span>

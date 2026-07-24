@@ -922,3 +922,27 @@
   font-weight: 400;
   fill: #707070;
 }
+
+/* ===== BPM CHART LEGEND ===== */
+.bpm-chart-legend {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 16px;
+  padding-left: 20px;
+}
+
+/* ===== RADIAL CHART LEGEND POSITIONING ===== */
+.radial-chart-legend-left {
+  position: absolute;
+  left: calc(20% - 45px);
+  top: 70%;
+  transform: translateY(-50%);
+}
+
+.radial-chart-legend-right {
+  position: absolute;
+  left: calc(80% - 30px);
+  top: 10%;
+  transform: translateY(-50%);
+}
